@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import { loginUser, logoutUser } from '../actions/session';
 
 import { Link } from 'react-router';
-import Button from '../components/button';
 import Content from '../components/content';
-import LoginModal from '../components/login/login-modal';
 import Logo from '../components/logo';
 import Navigator from '../components/navigator';
 import NavigatorItem from '../components/navigator-item';
@@ -25,40 +23,27 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function App({ children, session, login, logout }) {
-  const token = session.get('token', false);
-  const isLoggedIn = token && token !== null && typeof token !== 'undefined';
-  const firstName = session.getIn(['user', 'first'], '');
-  const lastName = session.getIn(['user', 'last'], '');
-
+function App({ children }) {
   return (
     <div>
-      <LoginModal
-        onSubmit={ login }
-        isPending={ session.get('isLoading', false) }
-        hasError={ session.get('hasError', false) }
-        isVisible={ !isLoggedIn } />
       <Navigator testid="navigator">
         <NavigatorItem mr>
           <Logo />
         </NavigatorItem>
-        <NavigatorItem isVisible={ isLoggedIn } mr>
-          <Link to="/">Counter</Link>
+        <NavigatorItem mr>
+          <Link to="/">Timeline</Link>
         </NavigatorItem>
-        <NavigatorItem isVisible={ isLoggedIn }>
-          <Link to="/about">About Us</Link>
+        <NavigatorItem>
+          <Link to="/about">About Me</Link>
         </NavigatorItem>
-        <div className="flex flex-auto" />
-        <NavigatorItem isVisible={ isLoggedIn } mr>
-          <div data-testid="user-profile" className="h3">{ `${ firstName } ${ lastName }` }</div>
+        <NavigatorItem>
+          <Link to="/resume">Resume</Link>
         </NavigatorItem>
-        <NavigatorItem isVisible={ isLoggedIn }>
-          <Button onClick={ logout } className="bg-red white">
-            Logout
-          </Button>
+        <NavigatorItem>
+          <Link to="/demo">Demo</Link>
         </NavigatorItem>
       </Navigator>
-      <Content isVisible={ isLoggedIn }>
+      <Content isVisible>
         { children }
       </Content>
     </div>
