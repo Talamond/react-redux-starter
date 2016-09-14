@@ -4,9 +4,7 @@ function renderTimelineViewerElements(items) {
   const elems = [];
   items.forEach((item, index) => {
     elems.push((
-      <div key={'tlv-' + index}>
-        {item.type}
-      </div>
+      <img className="flex-auto" key={'tlthumb' + index} src={item.thumbUrl || 'assets/funAhead.png'} width="50" height="50"/>
     ));
   });
   return elems;
@@ -23,14 +21,13 @@ function renderTimelineElements(items) {
   });
   return elems;
 }
-
+/* eslint-disable */
 function Timeline({ items, selectedIndex}) {
   return (
     <div className="aa" style={{minHeight: '100vh'}}>
       <div className="flex flex-wrap">
         <div className="col-1">
           {renderTimelineViewerElements(items)}
-          {selectedIndex}
         </div>
         <div className="col-11 p2 bg-darken-1">
           {renderTimelineElements(items)}

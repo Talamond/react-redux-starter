@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 function Container({ children, size = 1, center, ...props }) {
-  const containerClasses = classNames('clearfix', 'px1', {
+  const containerClasses = classNames('clearfix', {
     'max-width-1': size === 1,
     'max-width-2': size === 2,
     'max-width-3': size === 3,

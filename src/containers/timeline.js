@@ -16,7 +16,7 @@ function mapDispatchToProps() {
 const typicalTimeline = (imgUrl) => {
   return (<div>
     <div>
-      <i className={imgUrl}/>
+      <img src={imgUrl} height="300" width="300"/>
     </div>
     <div>Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text </div>
   </div>);
@@ -25,8 +25,9 @@ const typicalTimeline = (imgUrl) => {
 const sampleTimelineItems = [
   {
     type: 'personal',
+    thumbUrl: 'assets/funAhead.png',
     date: '2014-01-13',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png'),
   },
   {
     type: 'personal',
