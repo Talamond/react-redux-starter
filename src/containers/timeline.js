@@ -22,76 +22,115 @@ const typicalTimeline = (imgUrl, text) => {
   </div>);
 };
 
+// TODO move this list and sorting into reducer
 const sampleTimelineItems = [
   {
     type: 'love',
-    date: '2014-01-13',
+    date: new Date(2012, 1, 1),
     content: typicalTimeline('assets/fun.png',
     'love love love love love love love love love love love love love love love love love love love love love love '),
   },
   {
     type: 'food',
-    date: '2014-01-17',
+    date: new Date(2012, 1, 1),
     content: typicalTimeline('assets/fun.png',
     'food food food food food food food food food food food food food food food food food food food food food food food '),
   },
   {
     type: 'travel',
-    date: '2014-01-21',
+    date: new Date(2012, 1, 1),
     content: typicalTimeline('assets/fun.png',
     'travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel '),
   },
   {
     type: 'time',
-    date: '2014-02-13',
+    date: new Date(2012, 1, 1),
     content: typicalTimeline('assets/fun.png',
     'time time time time time time time time time time time time time time time time time time time time time time time '),
   },
   {
     type: 'sport',
-    date: '2014-02-13',
+    date: new Date(2012, 3, 1),
     content: typicalTimeline('assets/fun.png',
     'fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun '),
   },
   {
     type: 'love',
-    date: '2014-02-23',
-    content: typicalTimeline('assets/fun.png'),
+    date: new Date(2012, 3, 1),
+    content: typicalTimeline('assets/fun.png',
+      'love love love love love love love love love love love love love love love love love love love love love love '),
+  },
+  {
+    type: 'food',
+    date: new Date(2012, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'food food food food food food food food food food food food food food food food food food food food food food food '),
+  },
+  {
+    type: 'travel',
+    date: new Date(2013, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel '),
+  },
+  {
+    type: 'time',
+    date: new Date(2013, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'time time time time time time time time time time time time time time time time time time time time time time time '),
+  },
+  {
+    type: 'sport',
+    date: new Date(2013, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun '),
   },
   {
     type: 'love',
-    date: '2014-03-13',
-    content: typicalTimeline('assets/fun.png'),
+    date: new Date(2012, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'love love love love love love love love love love love love love love love love love love love love love love '),
+  },
+  {
+    type: 'food',
+    date: new Date(2012, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'food food food food food food food food food food food food food food food food food food food food food food food '),
+  },
+  {
+    type: 'travel',
+    date: new Date(2012, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel '),
+  },
+  {
+    type: 'time',
+    date: new Date(2012, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'time time time time time time time time time time time time time time time time time time time time time time time '),
+  },
+  {
+    type: 'sport',
+    date: new Date(2012, 1, 1),
+    content: typicalTimeline('assets/fun.png',
+      'fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun '),
   },
   {
     type: 'love',
-    date: '2014-03-23',
-    content: typicalTimeline('assets/fun.png'),
-  },
-  {
-    type: 'love',
-    date: '2014-03-24',
-    content: typicalTimeline('assets/fun.png'),
-  },
-  {
-    type: 'love',
-    date: '2015-01-13',
-    content: typicalTimeline('assets/fun.png'),
-  },
-  {
-    type: 'love',
-    date: '2015-01-13',
-    content: typicalTimeline('assets/fun.png'),
-  },
-  {
-    type: 'love',
-    date: '2015-01-13',
+    date: new Date(2016, 1, 1),
     content: typicalTimeline('assets/fun.png',
     'last last last last last last last last last last last last last last last last last last last last last last '),
   },
 ];
 
 function TimelinePage() {
+  sampleTimelineItems.sort((a, b) => {
+    if (a.date < b.date) {
+      return -1;
+    } else if (a.date > b.date) {
+      return 1;
+    }
+    return 0;
+  });
   return (
     <Container size={4} center>
       <Timeline items={sampleTimelineItems} selectedIndex={0}/>

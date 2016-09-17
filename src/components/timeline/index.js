@@ -29,9 +29,20 @@ export default class Timeline extends React.Component {
     element.scrollIntoView();
   }
 
+  renderDateElem(date, index) {
+    const dateString = date.toLocaleString('en', { year: 'numeric', month: 'short' });
+    return <div key={'date' + index} className="h6 gray bold italic line-height-1">{dateString}</div>;
+  }
+
   renderTimelineViewerElements(items) {
     const elems = [];
+    const dateMap = {};
     items.forEach((item, index) => {
+      const key = item.date.getFullYear() + '-' + item.date.getMonth();
+      if (!dateMap[key]) {
+        dateMap[key] = true;
+        elems.push(this.renderDateElem(item.date, index));
+      }
       elems.push((
         <img className="flex-auto" key={'tlthumb' + index} src={item.thumbUrl || iconMap[item.type]} width="50" height="50" onClick={() => this.onThumbClick(index)}/>
       ));
@@ -54,16 +65,16 @@ export default class Timeline extends React.Component {
   render() {
     const { items } = this.props;
     return (
-      <div className="aa" style={{minHeight: '100vh'}}>
+      <div className="aa" style={{minHeight: '90vh'}}>
         <div className="flex flex-wrap">
-          <div className="col-1 overflow-scroll" style={{maxHeight: '100vh'}}>
+          <div className="col-1 overflow-scroll" style={{maxHeight: '80vh'}}>
             {this.renderTimelineViewerElements(items)}
           </div>
-          <div className="col-11 p2 bg-darken-1" style={{minHeight: '100vh'}}>
+          <div className="col-11 p2 bg-darken-1 overflow-scroll" style={{maxHeight: '80vh'}}>
             {this.renderTimelineElements(items)}
           </div>
         </div>
-        <footer className="p2 border-top">
+        <footer className="p2 border-top" style={{maxHeight: '10vh'}}>
           Footer
         </footer>
       </div>
