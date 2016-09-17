@@ -13,76 +13,81 @@ function mapDispatchToProps() {
 }
 
 /* eslint-disable */
-const typicalTimeline = (imgUrl) => {
+const typicalTimeline = (imgUrl, text) => {
   return (<div>
     <div>
       <img src={imgUrl} height="300" width="300"/>
     </div>
-    <div>Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text </div>
+    <div>{text}</div>
   </div>);
 };
 
 const sampleTimelineItems = [
   {
-    type: 'personal',
-    thumbUrl: 'assets/funAhead.png',
+    type: 'love',
     date: '2014-01-13',
+    content: typicalTimeline('assets/fun.png',
+    'love love love love love love love love love love love love love love love love love love love love love love '),
+  },
+  {
+    type: 'food',
+    date: '2014-01-17',
+    content: typicalTimeline('assets/fun.png',
+    'food food food food food food food food food food food food food food food food food food food food food food food '),
+  },
+  {
+    type: 'travel',
+    date: '2014-01-21',
+    content: typicalTimeline('assets/fun.png',
+    'travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel travel '),
+  },
+  {
+    type: 'time',
+    date: '2014-02-13',
+    content: typicalTimeline('assets/fun.png',
+    'time time time time time time time time time time time time time time time time time time time time time time time '),
+  },
+  {
+    type: 'sport',
+    date: '2014-02-13',
+    content: typicalTimeline('assets/fun.png',
+    'fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun fun '),
+  },
+  {
+    type: 'love',
+    date: '2014-02-23',
     content: typicalTimeline('assets/fun.png'),
   },
   {
-    type: 'personal',
-    date: '2014-01-17',
-    content: typicalTimeline('filler'),
-  },
-  {
-    type: 'personal',
-    date: '2014-01-21',
-    content: typicalTimeline('filler'),
-  },
-  {
-    type: 'personal',
-    date: '2014-02-13',
-    content: typicalTimeline('filler'),
-  },
-  {
-    type: 'personal',
-    date: '2014-02-13',
-    content: typicalTimeline('filler'),
-  },
-  {
-    type: 'personal',
-    date: '2014-02-23',
-    content: typicalTimeline('filler'),
-  },
-  {
-    type: 'personal',
+    type: 'love',
     date: '2014-03-13',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png'),
   },
   {
-    type: 'personal',
+    type: 'love',
     date: '2014-03-23',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png'),
   },
   {
-    type: 'personal',
+    type: 'love',
     date: '2014-03-24',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png'),
   },
   {
-    type: 'personal',
+    type: 'love',
     date: '2015-01-13',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png'),
   },
   {
-    type: 'personal',
+    type: 'love',
     date: '2015-01-13',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png'),
   },
   {
-    type: 'personal',
+    type: 'love',
     date: '2015-01-13',
-    content: typicalTimeline('filler'),
+    content: typicalTimeline('assets/fun.png',
+    'last last last last last last last last last last last last last last last last last last last last last last '),
   },
 ];
 
