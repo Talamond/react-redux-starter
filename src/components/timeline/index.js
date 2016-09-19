@@ -55,6 +55,8 @@ export default class Timeline extends React.Component {
     items.forEach((item, index) => {
       elems.push((
         <div key={'tlc-' + index} ref={'tlc-' + index}>
+          <br/>
+          <div className="bold underline h1">{item.date.toLocaleString('en', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
           {item.content}
         </div>
       ));
@@ -65,18 +67,15 @@ export default class Timeline extends React.Component {
   render() {
     const { items } = this.props;
     return (
-      <div className="aa" style={{minHeight: '90vh'}}>
+      <div className="aa" style={{minHeight: '95vh'}}>
         <div className="flex flex-wrap">
-          <div className="col-1 overflow-scroll" style={{maxHeight: '80vh'}}>
+          <div className="col-1 overflow-scroll" style={{maxHeight: '95vh'}}>
             {this.renderTimelineViewerElements(items)}
           </div>
-          <div className="col-11 p2 bg-darken-1 overflow-scroll" style={{maxHeight: '80vh'}}>
+          <div className="col-11 p2 bg-darken-1 overflow-scroll" style={{maxHeight: '95vh'}}>
             {this.renderTimelineElements(items)}
           </div>
         </div>
-        <footer className="p2 border-top" style={{maxHeight: '10vh'}}>
-          Footer
-        </footer>
       </div>
     );
   }

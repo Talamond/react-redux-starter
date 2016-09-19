@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+/* eslint-disable */
 import { loginUser, logoutUser } from '../actions/session';
 
 import { Link } from 'react-router';
@@ -26,21 +26,9 @@ function mapDispatchToProps(dispatch) {
 function App({ children }) {
   return (
     <div>
-      <Navigator testid="navigator">
-        <NavigatorItem mr>
-          <Logo />
-        </NavigatorItem>
-        <NavigatorItem mr>
-          <Link to="/">Timeline</Link>
-        </NavigatorItem>
-        <NavigatorItem>
-          <Link to="/about">About Me</Link>
-        </NavigatorItem>
-        <NavigatorItem>
-          <Link to="/resume">Resume</Link>
-        </NavigatorItem>
-        <NavigatorItem>
-          <Link to="/demo">Demo</Link>
+      <Navigator testid="navigator" style={{maxHeight: '5vh'}}>
+        <NavigatorItem style={{width: '100%'}}>
+          <div className="bold center" style={{width: '100%'}}>Sarah and Jon's Timeline Together!</div>
         </NavigatorItem>
       </Navigator>
       <Content isVisible>
