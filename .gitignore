@@ -29,6 +29,7 @@ node_modules
 
 # Build directory
 dist
+src/assets
 
 # Editor temporary files
 *~

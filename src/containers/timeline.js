@@ -22,136 +22,160 @@ const typicalTimeline = (imgUrl, text) => {
   </div>);
 };
 
+const renderImgs = (imgs) => {
+  const renderImgs = [];
+  imgs.forEach((elem) => {
+    renderImgs.push(<img src={elem} height="300" width="300"/>);
+  });
+  return renderImgs;
+};
+
+const multiTimeline = (imgUrls, text) => {
+  return (<div>
+    <div>
+      {this.renderImgs(imgUrls)}
+    </div>
+    <div>{text}</div>
+  </div>);
+};
+
+
 // TODO move this list and sorting into reducer
 const sampleTimelineItems = [
   {
     type: 'love',
     date: new Date(2014, 0, 13),
-    content: typicalTimeline('assets/fun.png',
-    'Our first recorded meeting! This might have not been the first time, but it was the first meetup you RSVPed to =). https://www.meetup.com/Random-activity-group-20s/events/157546972/'),
+    content: typicalTimeline('assets/ragLogo.jpeg',
+    'Our first recorded meeting! This might have not been the first time, but it was the first meetup you RSVPed to =). It must have been destiny! https://www.meetup.com/Random-activity-group-20s/events/157546972/'),
   },
   {
-    type: 'food',
+    type: 'time',
     date: new Date(2014, 0, 14),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/her.jpeg',
     'Our second recorded meeting! We both attended the meetup for the movie Her! I remember you told me a riddle in the theatre! https://www.meetup.com/Random-activity-group-20s/events/158230542/'),
   },
   {
-    type: 'travel',
+    type: 'game',
     date: new Date(2014, 1, 17),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/mafia.png',
     'I invite you to come play Mafia, and you came and sat close to me! :D At Nome you did some cool magic tricks to win me over =). https://www.meetup.com/Random-activity-group-20s/events/163166382/'),
   },
   {
     type: 'love',
     date: new Date(2014, 2, 30),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/onirim.jpeg',
     'This was our first date <3. You brought me cheesecake! We had tacos and played Ghost Blitz, Bananagrams and Oririm! We also watched a bad movie and did other things =).'),
   },
   {
     type: 'time',
     date: new Date(2014, 3, 3),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/kakao.png',
     'I remember chatting you up on Kakao talk from Cali. Told my mom about you too!'),
   },
   {
     type: 'time',
     date: new Date(2014, 4, 12),
-    content: typicalTimeline('assets/fun.png',
-      'Our first message on gchat!'),
+    content: typicalTimeline('assets/gtalk.jpeg',
+      'Our first message on gchat! It was a lot easier for me to type on the computer than phone, lol =)'),
   },
   {
     type: 'food',
     date: new Date(2014, 4, 26),
-    content: typicalTimeline('assets/fun.png',
-      'We went for sushi at JaBistro for your birthday!'),
+    content: typicalTimeline('assets/jabistro.jpeg',
+      'We went for sushi at JaBistro for your birthday! We sat on the patio and ate some yummy crab claw miso soup among other things. The dessert kinda sucked. I secretly took a pic of you, but I think the photo is lost on my old phone =(.'),
   },
   {
-    type: 'travel',
+    type: 'event',
     date: new Date(2014, 4, 28),
-    content: typicalTimeline('assets/fun.png',
-      'We saw Lion King with Josh and Susan for your birthday =)'),
+    content: typicalTimeline('assets/lionking.png',
+      'We saw Lion King with Josh and Susan for your birthday =). The costumes were amazing! I could feel the love tonight!'),
   },
   {
-    type: 'time',
+    type: 'event',
     date: new Date(2014, 9, 1),
-    content: typicalTimeline('assets/fun.png',
-      'We reunited at the circus =). I\'m glad we booked those tickets!'),
+    content: typicalTimeline('assets/circus.png',
+      'We reunited at the circus =). I\'m glad we booked those tickets! I missed you =)'),
   },
   {
-    type: 'sport',
+    type: 'event',
     date: new Date(2014, 8, 18),
-    content: typicalTimeline('assets/fun.png',
-      'I send you this handsome picture of myself and you said my skin looks flawless!'),
+    content: typicalTimeline('assets/me.png',
+      'I send you this handsome picture of myself and you said my skin looks flawless! I didn\'t know it meant so much to you back then ;)'),
   },
   {
     type: 'love',
     date: new Date(2014, 11, 27),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/iloveyou.jpeg',
       'I told you I love you sometime around here and gave you Fukufuku =). I love you!'),
   },
   {
-    type: 'love',
+    type: 'time',
     date: new Date(2015, 0, 14),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/iloveyou.jpeg',
       'First time you said you love me on gtalk!'),
   },
   {
     type: 'travel',
     date: new Date(2014, 11, 19),
-    content: typicalTimeline('assets/fun.png',
-      'We went to the book store and you helped me reach the tarot cards on the top self! It was around this date...'),
+    content: typicalTimeline('assets/tarot.jpeg',
+      'We went to the book store and you helped me reach the tarot cards on the top self! =)'),
   },
   {
     type: 'time',
     date: new Date(2015, 2, 14),
-    content: typicalTimeline('assets/fun.png',
-      'We went to the jiljibam!'),
+    content: typicalTimeline('assets/sauna.jpg',
+      'We went to the jjimljibang! I think it was the first time I had bingsu and one of the first times I met your sister!'),
   },
   {
     type: 'food',
     date: new Date(2015, 2, 31),
-    content: typicalTimeline('assets/fun.png',
-      'We celebrated our date anniversary at Bymark!'),
+    content: typicalTimeline('assets/bymark.jpg',
+      'We celebrated our date anniversary at Bymark! You didn\'t like it that much, but I thought it was pretty good. Our steaks are better >=).'),
   },
   {
-    type: 'love',
+    type: 'sport',
     date: new Date(2015, 3, 5),
-    content: typicalTimeline('assets/fun.png',
-    'We played badminton! Maybe for the first time together.'),
+    content: typicalTimeline('assets/badminton.jpg',
+    'We played badminton! Maybe for the first time together. You\'re pretty good!'),
   },
   {
     type: 'travel',
     date: new Date(2015, 5, 6),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/winetasting.jpg',
       'We went to Niagara Falls! We played games at the arcade and casino and went wine tasting!'),
   },
   {
     type: 'travel',
     date: new Date(2015, 6, 4),
-    content: typicalTimeline('assets/fun.png',
-      'We want to my Grandmas house! You met my mom!'),
+    content: typicalTimeline('assets/momandme.jpg',
+      'We want to my Grandmas house! You met my mom! It was a longggg drive, but we made it.'),
+  },
+  {
+    type: 'event',
+    date: new Date(2015, 6, 8),
+    content: typicalTimeline('assets/penandteller.jpg',
+      'We went to New York City! We saw Pen and Teller too! It was pretty stressful driving x.x'),
   },
   {
     type: 'travel',
-    date: new Date(2015, 6, 8),
-    content: typicalTimeline('assets/fun.png',
-      'We went to New York City! We saw Pen and Teller too!'),
-  },
-  {
-    type: 'love',
     date: new Date(2015, 6, 9),
-    content: typicalTimeline('assets/fun.png',
-      'We went to the fancy jiljibam! We also craved our names on the castle!'),
+    content: typicalTimeline('assets/newyork.jpg',
+      'We explored New York and then went to the fancy JJimjilbang! It was amazing to relax!'),
   },
   {
     type: 'love',
+    date: new Date(2015, 6, 10),
+    content: typicalTimeline('assets/castle.jpg',
+      'Do you remember when we craved out names in the castle? That was this day!'),
+  },
+  {
+    type: 'travel',
     date: new Date(2015, 7, 1),
-    content: typicalTimeline('assets/fun.png',
-      'We went camping! Never again...'),
+    content: typicalTimeline('assets/badcamp.png',
+      'We went camping! Never again... We got stormed on and had a bit of a panic...'),
   },
   {
-    type: 'love',
+    type: 'time',
     date: new Date(2015, 7, 28),
     content: typicalTimeline('assets/fun.png',
       'We made soap! It lasted over a year!'),
@@ -159,55 +183,43 @@ const sampleTimelineItems = [
   {
     type: 'food',
     date: new Date(2015, 8, 26),
-    content: typicalTimeline('assets/fun.png',
-      'We went apple picking!'),
+    content: typicalTimeline('assets/apple.jpg',
+      'We went apple picking! We also discovered delicious apple crumble nom nom.'),
   },
   {
-    type: 'food',
-    date: new Date(2015, 9, 7),
-    content: typicalTimeline('assets/fun.png',
-      'We went to loaded perigoes'),
-  },
-  {
-    type: 'love',
+    type: 'event',
     date: new Date(2015, 9, 8),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/painting.jpg',
       'We did our first paint nite! We both made a masterpiece!'),
   },
   {
-    type: 'love',
+    type: 'event',
     date: new Date(2015, 9, 10),
-    content: typicalTimeline('assets/fun.png',
-      'We did Halloween Haunt with Andrew and Steph, you were so brave!'),
+    content: typicalTimeline('assets/halloweenhaunt.jpg',
+      'We did Halloween Haunt with Andrew and Steph, you were so brave I was so proud!'),
   },
   {
-    type: 'love',
+    type: 'food',
     date: new Date(2015, 9, 17),
-    content: typicalTimeline('assets/fun.png',
-      'We went for high tea and escape room!'),
+    content: typicalTimeline('assets/hightea.png',
+      'We went for high tea and escape room! I think we still have a coupon for that...'),
   },
   {
-    type: 'love',
+    type: 'game',
     date: new Date(2015, 9, 24),
-    content: typicalTimeline('assets/fun.png',
+    content: typicalTimeline('assets/escape.jpg',
       'We did an escape room! we escape with 0 time left! Good thing the password was 0000!'),
   },
   {
-    type: 'love',
+    type: 'game',
     date: new Date(2015, 10, 14),
-    content: typicalTimeline('assets/fun.png',
-      'You met my cousins for the first time/ They really like you. You we\'re trying to hussle them in bonanza =)'),
+    content: typicalTimeline('assets/bohnanza.jpg',
+      'You met my cousins for the first time! They really like you. You we\'re trying to hussle them in bonanza =)'),
   },
   {
     type: 'love',
-    date: new Date(2015, 5, 20),
-    content: typicalTimeline('assets/fun.png',
-      'You met my dad for the first time. He was happy you\'re nice and not crazy!'),
-  },
-  {
-    type: 'love',
-    date: new Date(2015, 11, 20),
-    content: typicalTimeline('assets/fun.png',
+    date: new Date(2015, 10, 30),
+    content: typicalTimeline('assets/christmastree30nov.jpg',
       'We set up the christmas tree! It was up for awhile lol'),
   },
   {

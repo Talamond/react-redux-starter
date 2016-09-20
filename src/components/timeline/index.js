@@ -9,6 +9,8 @@ const iconMap = {
   love: 'assets/heart.png',
   food: 'assets/food.png',
   travel: 'assets/travel.png',
+  game: 'assets/dice.jpeg',
+  event: 'assets/event.png'
 };
 
 export default class Timeline extends React.Component {
